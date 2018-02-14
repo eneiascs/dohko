@@ -91,13 +91,12 @@ public interface TaskStatusRepository extends Closeable
 	 */
 	@Nonnull
 	@SingleValueResult
-	@SqlQuery("SELECT t.uuid as task_uuid, t.name as task_name, task_id, task_status_type_id, status_time, worker_id, pid \n" + 
-			  " FROM task_status ts\n" +
-	          " JOIN task t ON t.id = ts.task_id and lower(t.uuid) = lower(:taskId)\n" +
-	          "WHERE \n" +
-//			  " ts.task_id = (SELECT t.id FROM task t WHERE lower(t.uuid) = lower(:taskId)) AND \n" + 
-	          " ts.status_time = (SELECT MAX(status_time) FROM task_status tsm WHERE tsm.task_id = ts.task_id) AND \n" +
-			  " ts.task_status_type_id = (SELECT max(task_status_type_id) FROM task_status tsm WHERE tsm.task_id = ts.task_id)")
+	@SqlQuery("SELECT t.uuid as task_uuid, t.name as task_name, task_id, task_status_type_id, status_time, worker_id, pid  \n" + 
+			  " FROM task_status ts \n" + 
+	          " JOIN task t ON t.id = ts.task_id and lower(t.uuid) = lower(:taskId) \n" + 
+	          " WHERE \n" + 
+	          " ts.task_status_type_id = (SELECT max(ts.task_status_type_id)	   FROM task_status ts \n" + 
+	          " JOIN task t ON t.id = ts.task_id and lower(t.uuid) = lower(:taskId))")
 	Optional<TaskStatus> getLastStatusOfTask(@Bind("taskId") String taskId);
 	
 	class TaskStatusRepositorySetMapper implements ResultSetMapper<TaskStatus> 
