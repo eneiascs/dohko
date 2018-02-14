@@ -399,7 +399,7 @@ public class Block implements Serializable, Cloneable, Iterable<Application>, Co
 	@Override
 	public int compareTo(Block that) 
 	{
-		return that == null ? 1 : Comparator.<String>naturalOrder().compare(getId(), that.getId());
+		return that == null ? 1 : (getId() == null && that.getId()==null) ? 0 : that.getId()==null ? 1 : getId()==null ? -1 : Comparator.<String>naturalOrder().compare(getId(), that.getId());
 	}
 
 	@Override
