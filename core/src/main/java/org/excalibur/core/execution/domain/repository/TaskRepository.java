@@ -41,7 +41,7 @@ import io.dohko.jdbi.stereotype.Repository;
 public interface TaskRepository extends Closeable
 {   
     String SQL_SELECT_ALL = "SELECT (SELECT j.uuid FROM job j WHERE j.id = t.job_id) as job_uuid, \n "
-    		+ " t.job_id, t.uuid as task_uuid, t.name as task_name, t.commandline as task_commandline, t.parents, t.group_name\n"
+    		+ " t.job_id, t.uuid as task_uuid, t.name as task_name, t.commandline as task_commandline, t.parents\n"
     		+ " FROM task t\n";
     
     @GetGeneratedKeys
