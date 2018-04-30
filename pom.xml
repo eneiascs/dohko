@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -13,7 +12,7 @@
 	<groupId>org.excalibur</groupId>
 	<artifactId>super-pom</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<name>${project.groupId}::${project.artifactId}</name>
 	<inceptionYear>2013</inceptionYear>
 
@@ -81,7 +80,7 @@
 
 		<commons-exec.version>1.2</commons-exec.version>
 		<computer-objects.version>1.0.0-SNAPSHOT</computer-objects.version>
-		<command.version>0.5-SNAPSHOT</command.version>
+		<command.version>0.5.1-SNAPSHOT</command.version>
 		<junit.version>4.11</junit.version>
 		<jdbi-ext.version>1.0.0-SNAPSHOT</jdbi-ext.version>
 		<reflections.version>0.9.9</reflections.version>
@@ -876,10 +875,10 @@
 							  <![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 							<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="true">
 							  <local-check-config name="${project.groupId}-checkstyle" location="${checkstyle.file}" type="external" description="">
-							    <additional-data name="protect-config-file" value="false"/>
+							    <additional-data name="protect-config-file" value="false" />
 							  </local-check-config>
 							  <fileset name="all" enabled="true" check-config-name="${project.groupId}-checkstyle" local="true">
-							    <file-match-pattern match-pattern="." include-pattern="true"/>
+							    <file-match-pattern match-pattern="." include-pattern="true" />
 							  </fileset>
 							</fileset-config>
 					        ]]>
